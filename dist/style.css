@@ -16,6 +16,7 @@ body {
 
 .modal-container {
   visibility: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -50,7 +51,7 @@ button {
   align-items: center;
   justify-content: center;
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: auto;
   padding-top: 50px;
   padding-left: 30px;
   padding-right: 30px;
