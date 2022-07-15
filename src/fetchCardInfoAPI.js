@@ -2,7 +2,7 @@ export const fetchCardInfo = async () => {
 	const options = {
 		method: 'GET',
 		headers: {
-		  'X-RapidAPI-Key': '91bd8f54b6mshce8e72a14a5f7fbp169d93jsnf3fc17b9ea30',
+		  'X-RapidAPI-Key': process.env.API_KEY,
 		  'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
 		}
 	  };
