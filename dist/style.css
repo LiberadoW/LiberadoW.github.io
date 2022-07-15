@@ -1,0 +1,422 @@
+.js .accordion:nth-child(n + 1) {
+  display: none;
+}
+
+html {
+  font-family: 'Oxygen', sans-serif;
+}
+
+
+body {
+  background-image: url(/dist/pictures/wood-texture.jpg);
+  margin: 0;
+  padding: 0;
+}
+
+
+.modal-container {
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  left: 0;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+button {
+  align-items: center;
+  background-color: #7c0a02;
+  padding: 10px 21px;
+  border-radius: 8px;
+  border-style: none;
+  color: #fff9f0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding-top: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  width: 50%;
+  max-width: 600px;
+}
+
+.leaderboard-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+#modal-leaderboard-body {
+}
+
+#leaderboard-modal-container .leaderboard-table {
+}
+
+.username-modal {
+  height: 20%;
+  max-width: 30%;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.modal li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-container.show {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.instructions-title-container {
+  text-align: center;
+}
+
+.close-modal-instructions-button-container {
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.test-mode-answer-container {
+  visibility: hidden;
+}
+
+#site-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff9f0;
+}
+
+.top-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 40px;
+  background-color: #7c0a02;
+  color: white;
+}
+
+.top-wrapper button {
+  cursor: pointer;
+  padding: 30px 20px;
+  color: #fff9f0;
+  border: none;
+  background: none;
+  font-weight: bold;
+}
+
+.username-button {
+  position: absolute;
+  right: 0;
+}
+
+.menu-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.difficulty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 50%;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 13%;
+}
+
+.leaderboard-buttons {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  background-color: #7c0a02;
+  color: white;
+}
+
+.input-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: bold;
+  width: 100%;
+}
+
+input[type="radio"] {
+  display: none;
+}
+input[type="radio"] + label {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #670801;
+  box-shadow: inset 0px 0px 23px -7px rgba(0, 0, 0, 1);
+}
+
+.play-area-wrapper {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  width: 75%;
+  max-width: 800px;
+  align-self: center;
+}
+
+.site-title {
+  display: flex;
+  width: 100%;
+  margin: 0px;
+  justify-content: center;
+}
+
+.card-image-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex: 1;
+  pointer-events: none;
+}
+
+.input-wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.button-and-score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 35%;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.mana-cost-coverup {
+  position: absolute;
+  display: none;
+  width: 21%;
+  top: 8.3%;
+  left: 5%;
+}
+
+.attack-value-coverup {
+  position: absolute;
+  display: none;
+  width: 24%;
+  bottom: 0%;
+  left: 4.5%;
+}
+
+.card-art-coverup {
+  position: absolute;
+  display: none;
+  width: 46.1%;
+  top: 9%;
+  left: 24.5%;
+}
+
+.health-value-coverup {
+  position: absolute;
+  display: none;
+  width: 16.5%;
+  bottom: 0%;
+  right: 12.1%;
+}
+
+.name-coverup {
+  position: absolute;
+  display: none;
+  width: 70%;
+  bottom: 36%;
+  left: 13%;
+}
+
+.game-over-wrapper {
+  display: none;
+  height: 100%;
+  width: 100%;
+  margin-top: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-image-container {
+  width: 100%;
+  max-width: 45vh;
+  pointer-events: none;
+}
+
+.answer-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer-input-container label {
+  padding-right: 5px;
+}
+
+.card-count-container {
+  position: absolute;
+  top: 11%;
+  right: 20%;
+}
+
+.random-card {
+  width: 90%;
+  pointer-events: none;
+}
+
+.card-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  pointer-events: none;
+}
+
+.leaderboard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.leaderboard {
+  display: flex;
+  min-width: 400px;
+  max-width: 600px;
+  width: 40%;
+}
+
+.leaderboard-table {
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 0.9em;
+  table-layout: fixed;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.leaderboard-table thead tr {
+  color: #fff9f0;
+  background-color: #7c0a02;
+  text-align: left;
+  font-weight: bold;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 12px 15px;
+}
+
+.leaderboard-table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+tr.black-bottom-border {
+  border-bottom: 3px solid black !important;
+}
+
+.leaderboard-table tbody tr:last-of-type {
+  border-bottom: 3px solid #7c0a02;
+}
+
+.highlighted-class {
+  background-color: #bd2a2a;
+  color: #fff9f0;
+  font-weight: bold;
+}
+
+.first-place {
+  background-color: #ffd700;
+  font-weight: bold;
+}
+
+.second-place {
+  background-color: #c0c0c0;
+  font-weight: bold;
+}
+
+.third-place {
+  background-color: #cd7f32;
+  font-weight: bold;
+}

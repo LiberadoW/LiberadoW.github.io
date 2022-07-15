@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="username-modal-container" class="modal-container">
+      <div class="modal username-modal">
+        Busy night... but there's always room for another! What is your name
+        adventurer?
+        <div class="username-input-container" id="username-input-container">
+          <label for="username-input">Select your username:</label>
+          <input type="text" name="username-input" id="username-input" />
+        </div>
+        <button id="username-input-button">Confirm</button>
+      </div>
+    </div>
+
+    <div id="instructions-modal-container" class="modal-container">
+      <div class="modal">
+        <h2 id="instructions-title">Guess the name of the mystery card!</h2>
+
+        <ol>
+          <li>Choose difficulty level:</li>
+          <ul>
+            <li><b>Easy:</b> Only the name of the card is hidden.</li>
+            <li>
+              <b>Medium:</b> The name of the card is hidden as well as one of
+              these three things: attack, health and mana cost.
+            </li>
+            <li><b>Hard:</b> Same as above but the card art is hidden.</li>
+          </ul>
+          <li>
+            Type the name of the card into the input box. If the name is
+            correct, you will be awarded points. The amount is based on how fast
+            you guessed the name of the card!
+          </li>
+          <li>
+            If you are stuck, you can press the <b>skip</b> button to go to the
+            next card. You won't be awarded any points for skipping a card!
+          </li>
+        </ol>
+
+        <button id="close-modal-instructions">Close</button>
+      </div>
+    </div>
+
+    <div id="leaderboard-modal-container" class="modal-container">
+      <div class="modal">
+        <div class="leaderboard-buttons">
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="leaderboard-easy"
+              name="difficulty"
+              checked
+              value="Easy"
+            />
+            <label for="leaderboard-easy">EASY</label>
+          </div>
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="leaderboard-medium"
+              name="difficulty"
+              value="Medium"
+            />
+            <label for="leaderboard-medium">MEDIUM</label>
+          </div>
+          <div class="input-radio">
+            <input
+              type="radio"
+              id="leaderboard-hard"
+              name="difficulty"
+              value="Hard"
+            />
+            <label for="leaderboard-hard">HARD</label>
+          </div>
+        </div>
+        <p class="leaderboard-title">Leaderboard</p>
+        <table class="leaderboard-table" id="modal-leaderboard-table">
+          <thead>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Top score</th>
+          </thead>
+          <tbody id="modal-leaderboard-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="site-wrapper">
+      <div id="top-wrapper" class="top-wrapper">
+        <div id="menu-wrapper" class="menu-wrapper">
+          <div id="menu-button-container" class="menu-button-container">
+            <button id="show-instructions" class="top-button">
+              HOW TO PLAY
+            </button>
+            <button id="show-leaderboard" class="top-button">
+              LEADERBOARD
+            </button>
+            <button id="username-button" class="username-button"></button>
+          </div>
+        </div>
+      </div>
+
+      <header>
+        <h1>Hearthstone Card Guessing Game</h1>
+      </header>
+
+      <div id="home-wrapper" class="home-wrapper">
+        <div class="difficulty-container">
+          <div>
+            <label for="choose-game-mode">Choose difficulty</label>
+            <select
+              name="choose-game-mode"
+              id="choose-game-mode"
+              class="choose-game-mode"
+            >
+              <option selected="true" value="nothing" disabled>
+                Difficulty
+              </option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div>
+            <label for="test-mode">Test mode</label>
+            <input type="checkbox" name="test-mode" id="test-mode"></div>
+        </div>
+        <button id="start-game" class="start-game-button">Play</button>
+      </div>
+
+      <div id="play-area-wrapper" class="play-area-wrapper">
+        <div id="card-image-wrapper" class="card-image-wrapper">
+          <div id="card-image-container" class="card-image-container">
+            <img
+              src="./pictures/name-coverup.png"
+              alt=""
+              class="name-coverup"
+            />
+            <img
+              src="./pictures/card-art-coverup.png"
+              alt=""
+              class="card-art-coverup"
+            />
+            <img
+              src="./pictures/mana-cost-coverup.png"
+              alt=""
+              class="mana-cost-coverup"
+            />
+            <img
+              src="./pictures/attack-value-coverup.png"
+              alt=""
+              class="attack-value-coverup"
+            />
+            <img
+              src="./pictures/health-value-coverup.png"
+              alt=""
+              class="health-value-coverup"
+            />
+          </div>
+        </div>
+
+        <div class="input-wrapper">
+          <div
+            id="button-and-score-container"
+            class="button-and-score-container"
+          >
+            <div class="card-count-container">
+              Card: <span id="card-count" class="bold-text"></span>
+            </div>
+            <div id="timer-container" class="timer-container">
+              Time left: <b><span id="timer"></span></b>
+            </div>
+            <div id="score-container" class="score-container">
+              Current score: <span id="player-score" class="bold-text"></span>
+            </div>
+
+            <div id="answer-input-container" class="answer-input-container">
+              <label for="answer-input">Answer:</label>
+              <input
+                type="text"
+                name="answer-input"
+                id="answer-input"
+                autocomplete="off"
+              />
+            </div>
+            <button id="skip-card-button">Skip</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-over-wrapper" class="game-over-wrapper">
+        <div id="final-score-container" class="final-score-container">
+          Final score for this run: <span id="final-score"></span>
+        </div>
+        <div id="leaderboard-container" class="leaderboard-container">
+          <div id="leaderboard" class="leaderboard">
+            <table class="leaderboard-table" id="leaderboard-table">
+              <thead>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Points</th>
+              </thead>
+              <tbody id="leaderboard-body"></tbody>
+            </table>
+          </div>
+        </div>
+        <button class="play-again-button" id="play-again-button">
+          Play again
+        </button>
+      </div>
+      <div class="test-mode-answer-container" id="test-mode-answer-container">
+        Answer: <span id="test-mode-answer"></span>
+      </div>
+    </div>
+  </body>
+
+  <script src="./main.js"></script>
+</html>
