@@ -21,4 +21,6 @@ export const gameOver =  (score) => {
 	updateDatabase(localStorage.getItem("username"), score,difficulty);
 	document.querySelector("#final-score").innerHTML = `<b> ${score} </b>`;
 	clearInterval(interval.refreshId);
+	document.querySelector("#test-mode-answer").textContent = "";
+	document.querySelector("#test-mode-answer-container").style.visibility = "hidden";
 }

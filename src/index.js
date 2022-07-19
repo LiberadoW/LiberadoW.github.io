@@ -26,15 +26,18 @@ document.getElementById("start-game").addEventListener("click", async () => {
 document
   .querySelector("#username-input-button")
   .addEventListener("click", () => {
-    if (document.querySelector("#username-input").value === "") {
+    const username = document.querySelector("#username-input").value
+    if (username === "") {
       alert("Please choose your username.");
-    } else {
+    } else if (/^[a-zA-Z0-9]{3,24}$/.test(username)) {
       localStorage.setItem(
         "username",
-        document.querySelector("#username-input").value
+        username
       );
       document.querySelector("#username-modal-container").classList.remove("show");
-      document.querySelector("#username-button").textContent = document.querySelector("#username-input").value;
+      document.querySelector("#username-button").textContent = username;
+    }else {
+      alert("Username may only contain letters and numbers and must be at least 3 and up to 24 characters long.")
     }
   });
 

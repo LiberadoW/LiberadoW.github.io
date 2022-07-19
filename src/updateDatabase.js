@@ -56,7 +56,7 @@ export const updateDatabase = (username, score, difficulty) => {
     .catch((error) => console.log("error", error));
 };
 
-export const findDocumentInDatabase = (difficulty) => {
+export const findDocumentInDatabase = (difficulty, func) => {
   const valueArray = getDifficultyArray(difficulty);
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");

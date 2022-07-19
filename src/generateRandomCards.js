@@ -12,6 +12,5 @@ export const generateRandomCards = async () => {
   const arrayOfIndexes = generateArray(filteredArray[0].length, 5);
   const randomCardsArray = [];
   arrayOfIndexes.map((x) => randomCardsArray.push(filteredArray[0][x]));
-  console.log(randomCardsArray);
   return randomCardsArray;
 };
